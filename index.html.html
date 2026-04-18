@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOUR CLUNSY — Press Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment: #f5e6c8;
+    --parchment-dark: #e8d5a3;
+    --parchment-darker: #d4b87a;
+    --ink: #2c1a0e;
+    --ink-light: #5c3d1e;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --gold-bright: #f0c040;
+    --red: #8b1a1a;
+    --red-light: #c0392b;
+    --border: #a0784a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #1a0e05;
+    color: var(--ink);
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 18px;
+    overflow-x: hidden;
+  }
+
+  /* ── TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(26,14,5,0.7) 0%, rgba(26,14,5,0.3) 40%, rgba(26,14,5,0.8) 100%),
+      url('https://images.unsplash.com/photo-1589802829985-817e51171b92?w=1600&q=80') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .hero-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 900;
+    color: var(--parchment);
+    line-height: 0.9;
+    text-shadow: 0 0 60px rgba(184,134,11,0.4), 4px 4px 0 rgba(0,0,0,0.5);
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-title span {
+    color: var(--gold-bright);
+    display: block;
+  }
+
+  .hero-divider {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 2rem auto;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-tagline {
+    font-family: 'Crimson Text', serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-style: italic;
+    color: var(--parchment-dark);
+    max-width: 600px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    animation: bounce 2s ease infinite;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    position: relative;
+    background: var(--parchment);
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .ornament-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .ornament-line.right {
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  .ornament-diamond {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ── SINOPSE ── */
+  .sinopse-section {
+    background: var(--parchment);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(184,134,11,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(139,26,26,0.06) 0%, transparent 60%);
+  }
+
+  .sinopse-text {
+    font-size: 1.25rem;
+    line-height: 1.9;
+    color: var(--ink-light);
+    max-width: 750px;
+    font-style: italic;
+    border-left: 3px solid var(--gold);
+    padding-left: 2rem;
+  }
+
+  .sinopse-text strong {
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ── TRAILER ── */
+  .trailer-section {
+    background: var(--ink);
+    background-image: radial-gradient(ellipse at center, #3d1f0a 0%, #1a0e05 70%);
+  }
+
+  .trailer-section .section-title,
+  .trailer-section .section-label {
+    color: var(--parchment);
+  }
+
+  .trailer-section .section-title {
+    color: var(--gold-bright);
+  }
+
+  .trailer-frame {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .trailer-border {
+    border: 2px solid var(--gold);
+    padding: 6px;
+    background: #000;
+    box-shadow: 0 0 40px rgba(184,134,11,0.3), inset 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  .trailer-border::before,
+  .trailer-border::after {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  .trailer-border::before { top: -12px; left: 50%; transform: translateX(-50%); }
+  .trailer-border::after  { bottom: -12px; left: 50%; transform: translateX(-50%); }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .video-placeholder {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .play-icon {
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .play-icon:hover {
+    background: rgba(184,134,11,0.2);
+    transform: scale(1.1);
+  }
+
+  .play-icon svg { margin-left: 5px; }
+
+  .video-label {
+    font-family: 'Cinzel', serif;
+    color: var(--parchment-dark);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+  }
+
+  .youtube-input-area {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .youtube-input-area p {
+    color: var(--parchment-dark);
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .yt-input-row {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .yt-input-row input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: rgba(245,230,200,0.1);
+    border: 1px solid var(--gold);
+    color: var(--parchment);
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .yt-input-row input::placeholder { color: rgba(245,230,200,0.4); }
+
+  .yt-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .yt-btn:hover { background: var(--gold-bright); }
+
+  /* ── PERSONAGENS ── */
+  .chars-section {
+    background: var(--parchment);
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a0784a' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .chars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .char-card {
+    background: linear-gradient(160deg, #fdf3dc 0%, #f0ddb0 100%);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .char-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(44,26,14,0.2);
+  }
+
+  .char-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-bright), var(--gold));
+  }
+
+  .char-card.locked {
+    filter: saturate(0.4);
+    opacity: 0.7;
+  }
+
+  .char-card.locked::after {
+    content: '🔒 EM BREVE';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--ink);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    padding: 4px 8px;
+  }
+
+  .char-img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: linear-gradient(180deg, rgba(184,134,11,0.08) 0%, rgba(44,26,14,0.12) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .char-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 1rem;
+  }
+
+  .char-body { padding: 1.5rem; }
+
+  .char-role {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .char-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .char-race {
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .char-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--ink-light);
+    margin-bottom: 1.2rem;
+    min-height: 80px;
+  }
+
+  .char-attrs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+
+  .attr {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .attr-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+
+  .attr-bar {
+    height: 4px;
+    background: rgba(44,26,14,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .attr-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+    border-radius: 2px;
+    transition: width 1s ease;
+  }
+
+  .attr-val {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .char-hp {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(139,26,26,0.08);
+    padding: 0.4rem 0.6rem;
+    border: 1px solid rgba(139,26,26,0.2);
+    margin-bottom: 0.4rem;
+  }
+
+  .char-hp .attr-label { color: var(--red); }
+  .char-hp .attr-val { color: var(--red); }
+
+  /* ── LORE ── */
+  .lore-section {
+    background: linear-gradient(180deg, var(--parchment-dark) 0%, var(--parchment) 100%);
+  }
+
+  .lore-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 700px) {
+    .lore-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  .lore-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--ink-light);
+  }
+
+  .lore-quote {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    background: rgba(255,255,255,0.4);
+    position: relative;
+  }
+
+  .lore-quote::before {
+    content: '"';
+    font-family: 'Cinzel', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.3;
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    line-height: 1;
+  }
+
+  .lore-quote p {
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--ink);
+  }
+
+  .lore-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+
+  /* ── AUTORES ── */
+  .authors-section {
+    background: var(--ink);
+    background-image: radial-gradient(ellipse at top, #3d1f0a 0%, #1a0e05 60%);
+  }
+
+  .authors-section .section-label { color: var(--gold); }
+  .authors-section .section-title { color: var(--parchment); }
+
+  .authors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .author-card {
+    border: 1px solid rgba(184,134,11,0.3);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .author-card:hover {
+    border-color: var(--gold);
+    background: rgba(184,134,11,0.05);
+  }
+
+  .author-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 20%;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .author-avatar {
+    width: 64px;
+    height: 64px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    background: rgba(184,134,11,0.1);
+  }
+
+  .author-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--parchment);
+    margin-bottom: 0.4rem;
+  }
+
+  .author-role {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0d0700;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(184,134,11,0.2);
+  }
+
+  .footer-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-size: 0.85rem;
+    color: rgba(245,230,200,0.4);
+    font-style: italic;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(13,7,0,0.9) 0%, transparent 100%);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--parchment-dark);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-bright); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(8px); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .chars-grid { grid-template-columns: 1fr; }
+    .authors-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">FOUR CLUNSY</div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#trailer">Trailer</a></li>
+    <li><a href="#personagens">Personagens</a></li>
+    <li><a href="#autores">Autores</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-badge">Press Kit — Jogo Indie Medieval</p>
+  <h1 class="hero-title">FOUR<span>CLUNSY</span></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">"Quatro desajustados. Um torneio. A glória eterna — ou uma derrota humilhante."</p>
+  <p class="hero-scroll">↓ &nbsp; SCROLL &nbsp; ↓</p>
+</section>
+
+<!-- SINOPSE -->
+<section class="sinopse-section" id="sobre">
+  <div class="section-inner">
+    <p class="section-label">O Jogo</p>
+    <h2 class="section-title">Sobre Four Clunsy</h2>
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right"></div>
+    </div>
+    <p class="sinopse-text">
+      Em busca de glória e da mão de uma dama, <strong>quatro aventureiros</strong> decidiram participar de um torneio mortal.<br><br>
+      Escolha 1 entre 4 desajustados e enfrente os demais em <strong>combates intensos</strong>, lutando pela glória eterna e pela mão da princesa.<br><br>
+      Ambientado na era medieval, onde batalhas eram travadas nos grandes <strong>coliseus do império</strong>, Four Clunsy é um jogo de luta arcade 1v1 onde cada personagem carrega uma história única — e uma forma completamente diferente de lutar.
+    </p>
+  </div>
+</section>
+
+<!-- TRAILER -->
+<section class="trailer-section" id="trailer">
+  <div class="section-inner" style="text-align:center">
+    <p class="section-label">Assista</p>
+    <h2 class="section-title">Trailer Oficial</h2>
+    <div class="ornament" style="justify-content:center; max-width:300px; margin: 0 auto 2.5rem;">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right"></div>
+    </div>
+
+    <div class="trailer-frame">
+      <div class="trailer-border">
+        <div class="video-wrapper" id="videoWrapper">
+          <div class="video-placeholder" id="videoPlaceholder">
+            <div class="play-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <polygon points="6,3 20,12 6,21" fill="#b8860b"/>
+              </svg>
+            </div>
+            <p class="video-label">TRAILER EM BREVE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="youtube-input-area">
+      <p>Cole o link do YouTube para exibir o trailer:</p>
+      <div class="yt-input-row">
+        <input type="text" id="ytUrl" placeholder="https://www.youtube.com/watch?v=..." />
+        <button class="yt-btn" onclick="loadVideo()">CARREGAR</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAGENS -->
+<section class="chars-section" id="personagens">
+  <div class="section-inner">
+    <p class="section-label">Elenco</p>
+    <h2 class="section-title">Os Quatro Desajustados</h2>
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right"></div>
+    </div>
+
+    <div class="chars-grid">
+
+      <!-- Sir Tasla -->
+      <div class="char-card">
+        <div class="char-img" id="img-tasla">⚔️</div>
+        <div class="char-body">
+          <p class="char-role">Guerreira · Player 1</p>
+          <h3 class="char-name">Sir Tasla</h3>
+          <p class="char-race">Raça: Humano</p>
+          <p class="char-desc">Uma guerreira formidável que canaliza sua aura através da espada, projetando rajadas mágicas contra seus inimigos. Não possui ataque corpo a corpo tradicional; sua única fonte de dano é a energia emanada de sua lâmina.</p>
+          <div class="char-attrs">
+            <div class="char-hp">
+              <span class="attr-label">HP</span>
+              <span class="attr-val">100</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">FOR</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:50%"></div></div>
+              <span class="attr-val">5</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">AGI</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:50%"></div></div>
+              <span class="attr-val">5</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">INT</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:100%"></div></div>
+              <span class="attr-val">10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lix -->
+      <div class="char-card">
+        <div class="char-img" id="img-lix">🧙</div>
+        <div class="char-body">
+          <p class="char-role">Mago · Player 2</p>
+          <h3 class="char-name">Lix</h3>
+          <p class="char-race">Raça: Elfo</p>
+          <p class="char-desc">Após anos de treinamento recluso nas montanhas, desenvolveu técnicas que vão além da sabedoria comum. Conhecido como o "Homem da Montanha", utiliza seu cajado mágico com força bruta. Não realiza ataques de longo alcance — usa magias de fortalecimento para lutar corpo a corpo.</p>
+          <div class="char-attrs">
+            <div class="char-hp">
+              <span class="attr-label">HP</span>
+              <span class="attr-val">100</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">FOR</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:100%"></div></div>
+              <span class="attr-val">10</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">AGI</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:50%"></div></div>
+              <span class="attr-val">5</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">INT</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:50%"></div></div>
+              <span class="attr-val">5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Oliver -->
+      <div class="char-card locked">
+        <div class="char-img" id="img-oliver">🏹</div>
+        <div class="char-body">
+          <p class="char-role">Arqueiro · Em Breve</p>
+          <h3 class="char-name">Oliver</h3>
+          <p class="char-race">Raça: Demi-humano</p>
+          <p class="char-desc">De porte físico imponente, é robusto e extremamente forte. Além da habilidade com disparos, também utiliza o arco como arma corpo a corpo. Utiliza ainda um arco reforçado que funciona como escudo contra ataques frontais.</p>
+          <div class="char-attrs">
+            <div class="char-hp">
+              <span class="attr-label">HP</span>
+              <span class="attr-val">150</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">FOR</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:50%"></div></div>
+              <span class="attr-val">5</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">AGI</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:50%"></div></div>
+              <span class="attr-val">5</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">INT</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:50%"></div></div>
+              <span class="attr-val">5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eve -->
+      <div class="char-card locked">
+        <div class="char-img" id="img-eve">🛡️</div>
+        <div class="char-body">
+          <p class="char-role">Tanker · Em Breve</p>
+          <h3 class="char-name">Eve</h3>
+          <p class="char-race">Raça: Orc</p>
+          <p class="char-desc">Uma orc órfã, acolhida por uma tribo de elfos, criada longe de sua natureza brutal. Mesmo com um corpo capaz de suportar pesos extremos, tornou-se ágil e precisa. Sua combinação de resistência, regeneração e mobilidade a torna uma defensora formidável.</p>
+          <div class="char-attrs">
+            <div class="char-hp">
+              <span class="attr-label">HP</span>
+              <span class="attr-val">100</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">FOR</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:50%"></div></div>
+              <span class="attr-val">5</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">AGI</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:100%"></div></div>
+              <span class="attr-val">10</span>
+            </div>
+            <div class="attr">
+              <span class="attr-label">INT</span>
+              <div class="attr-bar"><div class="attr-fill" style="width:50%"></div></div>
+              <span class="attr-val">5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LORE -->
+<section class="lore-section">
+  <div class="section-inner">
+    <div class="lore-grid">
+      <div>
+        <p class="section-label">Universo</p>
+        <h2 class="section-title">A Era do Coliseu</h2>
+        <div class="ornament">
+          <div class="ornament-line" style="max-width:60px"></div>
+          <div class="ornament-diamond"></div>
+        </div>
+        <p class="lore-text">
+          Nos tempos em que o império ainda respirava pela chama dos duelos, os grandes coliseus eram mais do que arenas — eram templos da glória.<br><br>
+          Guerreiros de todas as raças e origens convergiam para provar seu valor diante do povo e da corte. Entre batalhas de espada, cajado e arco, apenas os mais habilidosos — ou os mais sortudos — saíam de pé.
+        </p>
+      </div>
+      <div class="lore-quote">
+        <p>Em busca de glória e da mão de uma dama, quatro aventureiros decidiram participar de um torneio mortal. Escolha um entre quatro desajustados e enfrente os demais em combates intensos, lutando pela glória eterna e pela mão da princesa.</p>
+        <cite>— Sinopse Oficial, Four Clunsy</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTORES -->
+<section class="authors-section" id="autores">
+  <div class="section-inner">
+    <p class="section-label">Equipe</p>
+    <h2 class="section-title">Os Criadores</h2>
+    <div class="ornament" style="justify-content:flex-start">
+      <div class="ornament-line" style="max-width:80px; background: linear-gradient(90deg, var(--gold), transparent)"></div>
+      <div class="ornament-diamond"></div>
+    </div>
+
+    <div class="authors-grid">
+      <div class="author-card">
+        <div class="author-avatar">B</div>
+        <p class="author-name">Breno Siqueira</p>
+        <p class="author-role">Game Designer<br>& Programador</p>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar">A</div>
+        <p class="author-name">Alycia Tasla</p>
+        <p class="author-role">Diretora de Criação</p>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar">E</div>
+        <p class="author-name">Evely Thamires</p>
+        <p class="author-role">Roteirista<br>& Escritora</p>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar">F</div>
+        <p class="author-name">Felipe Felix</p>
+        <p class="author-role">Diretor de Criação</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-title">FOUR CLUNSY</p>
+  <p class="footer-sub">Jogo Indie Medieval · Arcade 1v1 · Todos os direitos reservados</p>
+</footer>
+
+<script>
+function loadVideo() {
+  var url = document.getElementById('ytUrl').value.trim();
+  var videoId = '';
+
+  var patterns = [
+    /youtube\.com\/watch\?v=([^&]+)/,
+    /youtu\.be\/([^?]+)/,
+    /youtube\.com\/embed\/([^?]+)/
+  ];
+
+  for (var i = 0; i < patterns.length; i++) {
+    var match = url.match(patterns[i]);
+    if (match) { videoId = match[1]; break; }
+  }
+
+  if (!videoId) {
+    alert('Link inválido. Use um link do YouTube como: https://www.youtube.com/watch?v=XXXXX');
+    return;
+  }
+
+  var wrapper = document.getElementById('videoWrapper');
+  wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allowfullscreen allow="autoplay"></iframe>';
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+
+</body>
+</html>
